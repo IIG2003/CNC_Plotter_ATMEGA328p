@@ -1,0 +1,23 @@
+# Claude Code
+.claude/
+
+# Local-only files (build outputs, backups, unrelated files)
+archive/
+
+# AVR build outputs -- rebuild from source
+*.elf
+*.hex
+*.o
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# EasyEDA autosave backups
+*_backup/
+
+# OS / editor
+Thumbs.db
+.DS_Store
+desktop.ini

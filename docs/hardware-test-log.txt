@@ -1,0 +1,12 @@
+The hardware test succeeded fully: all 1310 G-code lines streamed to the real plotter on COM7 with zero timeouts or dropped responses — including the final G0 X0 Y0 return-to-origin and M2 end-of-program. Total runtime was ~18.7 minutes (a bit longer than the ~11 min estimate, since the estimate doesn't account for the many short pauses on distant travel jumps between disconnected strokes).
+
+Summary of what's now confirmed working end-to-end, through the real app, not just isolated functions:
+- Load Image → Generate Preview — traced a real photo correctly, visually matched the source shape, scaled/centered to the 275×190mm bed.
+- Save G-code As — wrote a valid file.
+- Load .gcode file — correctly reopened circle.gcode.
+- Send to Plotter — streamed 1310 real lines over COM7 to the physical board with no communication failures, pen up/down no-op messages logged correctly, safe completion.
+
+The app is ready to use:
+python plotter_studio.py
+
+One thing to check with you: how did the actual drawing look on the machine? If the pen (once mounted) would trace correctly, great — but if you noticed the image orientation looked mirrored or upside-down while watching it move, toggle the "Flip Y"/"Flip X"/"Rotate 90°" checkboxes in the Orientation panel and regenerate.
